@@ -1,0 +1,5 @@
+zohocrm_session.json
+*.csv
+__pycache__/
+*.pyc
+.venv/
