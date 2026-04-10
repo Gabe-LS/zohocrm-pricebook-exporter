@@ -1,4 +1,4 @@
-# zohocrm-pricebook-export
+# zohocrm-pricebook-exporter
 
 Export all products and list prices from a Zoho CRM Price Book to CSV.
 
@@ -32,7 +32,7 @@ If you see `Python 3.10` or a higher number, you're good. If you see `Python 2.x
 
 1. Click the green **Code** button at the top of this page
 2. Click **Download ZIP**
-3. Unzip the downloaded file — you'll get a folder called `zohocrm-pricebook-export-main`
+3. Unzip the downloaded file — you'll get a folder called `zohocrm-pricebook-exporter-main`
 4. Remember where you saved that folder — you'll need it in the next step
 
 ---
@@ -41,14 +41,14 @@ If you see `Python 3.10` or a higher number, you're good. If you see `Python 2.x
 
 **macOS:**
 1. Open the **Terminal** app — press `Command + Space`, type `Terminal`, press Enter
-2. Open **Finder** and navigate to the `zohocrm-pricebook-export-main` folder — it should be in your `Downloads` folder
+2. Open **Finder** and navigate to the `zohocrm-pricebook-exporter-main` folder — it should be in your `Downloads` folder
 3. In Terminal, type `cd ` (the letters c, d, and a space — do not press Enter yet)
-4. Click on the `zohocrm-pricebook-export-main` folder in Finder, then drag it into the Terminal window — the folder path will appear automatically after `cd `
+4. Click on the `zohocrm-pricebook-exporter-main` folder in Finder, then drag it into the Terminal window — the folder path will appear automatically after `cd `
 5. Press Enter
 
 **Windows:**
 1. Open **File Explorer** — press `Windows + E` or click the folder icon in the taskbar
-2. Navigate to the `zohocrm-pricebook-export-main` folder — it should be in your `Downloads` folder
+2. Navigate to the `zohocrm-pricebook-exporter-main` folder — it should be in your `Downloads` folder
 3. Click once on the address bar at the top of the File Explorer window (the bar that shows the folder path — it will turn blue and show the full path)
 4. Type `cmd` (replacing whatever was there) and press Enter — a Command Prompt window will open in the right folder
 
@@ -82,12 +82,12 @@ In the terminal (open it again following Step 2 if you closed it), type:
 
 **macOS / Linux:**
 ```
-python3 zoho_pricebook_export.py
+python3 zohocrm_pricebook_exporter.py
 ```
 
 **Windows:**
 ```
-python zoho_pricebook_export.py
+python zohocrm_pricebook_exporter.py
 ```
 
 ### First run — log in
@@ -128,19 +128,19 @@ Exported 24 records to Retail_Partners_2024-2026.csv
 
 ```
 # List all price books without exporting
-python3 zoho_pricebook_export.py --list
+python3 zohocrm_pricebook_exporter.py --list
 
 # Export by name (partial match — no need to type the full name)
-python3 zoho_pricebook_export.py --pricebook "Retail"
+python3 zohocrm_pricebook_exporter.py --pricebook "Retail"
 
 # Export by ID (from the URL: crm.zoho.com/.../tab/PriceBooks/<ID>)
-python3 zoho_pricebook_export.py --pricebook 1234567890123456789
+python3 zohocrm_pricebook_exporter.py --pricebook 1234567890123456789
 
 # Save to a specific filename
-python3 zoho_pricebook_export.py --pricebook "Retail" --output prices.csv
+python3 zohocrm_pricebook_exporter.py --pricebook "Retail" --output prices.csv
 
 # Force re-login (if the session expired)
-python3 zoho_pricebook_export.py --login
+python3 zohocrm_pricebook_exporter.py --login
 ```
 
 > **Windows:** replace `python3` with `python` in all commands above.
@@ -149,7 +149,7 @@ python3 zoho_pricebook_export.py --login
 
 ## Something not working?
 
-Open an issue at [github.com/Gabe-LS/zohocrm-pricebook-export/issues](https://github.com/Gabe-LS/zohocrm-pricebook-export/issues)
+Open an issue at [github.com/Gabe-LS/zohocrm-pricebook-exporter/issues](https://github.com/Gabe-LS/zohocrm-pricebook-exporter/issues)
 
 ---
 
@@ -197,12 +197,12 @@ If you don't want to install Playwright, you can pass cookies manually. In your 
 
 **macOS / Linux:**
 ```
-python3 zoho_pricebook_export.py --cookies 'JSESSIONID=abc; crmcsr=xyz; ...'
+python3 zohocrm_pricebook_exporter.py --cookies 'JSESSIONID=abc; crmcsr=xyz; ...'
 ```
 
 **Windows:**
 ```
-python zoho_pricebook_export.py --cookies "JSESSIONID=abc; crmcsr=xyz; ..."
+python zohocrm_pricebook_exporter.py --cookies "JSESSIONID=abc; crmcsr=xyz; ..."
 ```
 
 Note: the first time you use `--cookies`, you also need a `zohocrm_session.json` file with your org config. Run once with `--login` to create it automatically, or create it manually:
@@ -217,7 +217,7 @@ Find your org ID in any Zoho CRM URL: `https://crm.zoho.com/crm/org<THIS_NUMBER>
 
 | File | Purpose |
 |------|---------|
-| `zoho_pricebook_export.py` | The script |
+| `zohocrm_pricebook_exporter.py` | The script |
 | `zohocrm_session.json` | Cached session — auto-created, gitignored |
 | `*.csv` | Exported price lists |
 

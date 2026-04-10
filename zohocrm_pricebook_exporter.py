@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-zoho_pricebook_export.py — Export Zoho CRM Price Book products and list prices to CSV.
+zohocrm_pricebook_exporter.py — Export Zoho CRM Price Book products and list prices to CSV.
 
 First run opens a browser for login. Your org and session are auto-detected
 and cached in zohocrm_session.json next to the script. Subsequent runs reuse the
@@ -11,12 +11,12 @@ Requirements:
     pip install playwright && playwright install chromium  # for auto-login
 
 Usage:
-    python zoho_pricebook_export.py                          # interactive picker
-    python zoho_pricebook_export.py --list                   # show all price books
-    python zoho_pricebook_export.py --pricebook "My Book"    # export by name (partial match)
-    python zoho_pricebook_export.py --pricebook 12345678...  # export by ID
-    python zoho_pricebook_export.py --login                  # force re-login
-    python zoho_pricebook_export.py --cookies '...'          # manual cookies (no Playwright needed)
+    python zohocrm_pricebook_exporter.py                          # interactive picker
+    python zohocrm_pricebook_exporter.py --list                   # show all price books
+    python zohocrm_pricebook_exporter.py --pricebook "My Book"    # export by name (partial match)
+    python zohocrm_pricebook_exporter.py --pricebook 12345678...  # export by ID
+    python zohocrm_pricebook_exporter.py --login                  # force re-login
+    python zohocrm_pricebook_exporter.py --cookies '...'          # manual cookies (no Playwright needed)
 
 Tested with: Python 3.10+, Zoho CRM (zoho.com, zoho.eu, zoho.in, zoho.com.au)
 
@@ -209,7 +209,7 @@ def _login_with_playwright(config: dict | None = None) -> tuple[dict, dict]:
             "Playwright is required for browser login. Install it with:\n"
             "  pip install playwright && playwright install chromium\n\n"
             "Alternatively, pass cookies manually:\n"
-            "  python zoho_pricebook_export.py --cookies '<paste from browser DevTools>'"
+            "  python zohocrm_pricebook_exporter.py --cookies '<paste from browser DevTools>'"
         )
 
     import shutil
